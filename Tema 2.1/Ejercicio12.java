@@ -14,10 +14,10 @@ public class Ejercicio12 {
 	public static void servidor() {
 
 		while (n < SIZE) {
-			while (!enServidor)
-				;
-			val++;
-			enServidor = false;
+			if (enServidor) {
+				val++;
+				enServidor = false;
+			}
 		}
 
 	}
@@ -25,13 +25,13 @@ public class Ejercicio12 {
 	public static void proxy() {
 
 		while (n < SIZE) {
-			while (!enProxy)
-				;
-			val++;
-			enServidor = true;
-			while (enServidor)
-				;
-			enProxy = false;
+			if (enProxy) {
+				val++;
+				enServidor = true;
+				while (enServidor)
+					;
+				enProxy = false;
+			}
 		}
 
 	}
